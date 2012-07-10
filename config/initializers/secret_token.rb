@@ -4,4 +4,4 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-Scheduler::Application.config.secret_token = '749c57862019dddf37cbd8f3fe803f3d10eb1e8e2693f2a999999c73ba7891ce6326d5dedb5e30a8c0348dbac7cb24d8382a8db6952cee9233113e26fbb5c15f'
+Scheduler::Application.config.secret_token = 'ad1a2fea4c6b9c4b82da04452cd466ff63abce006d4fdbfb9181a191fdafbd4dc9bb55dd5c72f51918b14079e2fe8fb62ffe8c8c6a0ec49360031165075f29c5'
