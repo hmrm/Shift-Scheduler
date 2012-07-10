@@ -1,4 +1,6 @@
 Scheduler::Application.routes.draw do
+  resources :shift_times
+
   resources :tutors
 
   # The priority is based upon order of creation:

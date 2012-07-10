@@ -1,0 +1,5 @@
+class Times < ActiveRecord::Base
+  attr_accessible :day_of_week, :time
+
+  
+end
