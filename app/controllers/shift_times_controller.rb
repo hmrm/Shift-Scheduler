@@ -3,6 +3,12 @@ class ShiftTimesController < ApplicationController
   # GET /shift_times.json
   def index
     @shift_times = ShiftTime.all
+    @times_by_day = {}
+    ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"].each do |day|
+      @times_by_day[day] = ShiftTime.order("time_of_day DESC").where("day_of_week = '#{day}'")
+    end
+
+    @max_length = @times_by_day.values.map{|times| times.length}.max
 
     respond_to do |format|
       format.html # index.html.erb

@@ -12,14 +12,12 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :day_of_week %><br />
-    <%= f.text_field :day_of_week %>
+    <%= f.select(:day_of_week, %w[Monday Tuesday Wednesday Thursday Friday Saturday Sunday], {}, {})%>
   </div>
   <div class="field">
-    <%= f.label :time_of_day %><br />
     <%= f.time_select :time_of_day %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Submit'%>
   </div>
 <% end %>

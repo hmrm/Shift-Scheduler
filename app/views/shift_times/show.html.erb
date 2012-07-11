@@ -1,15 +1,10 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Day of week:</b>
-  <%= @shift_time.day_of_week %>
-</p>
-
-<p>
-  <b>Time of day:</b>
-  <%= @shift_time.time_of_day %>
+  <%= @shift_time.day_of_week %>, <%= @shift_time.time_of_day.strftime('%l:%M %p') %>
 </p>
 
 
 <%= link_to 'Edit', edit_shift_time_path(@shift_time) %> |
-<%= link_to 'Back', shift_times_path %>
+<%= link_to 'Back', shift_times_path %> |
+<%= link_to 'Delete', @shift_time, method: :delete, data: { confirm: 'Are you sure?' } %>

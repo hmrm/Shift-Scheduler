@@ -1,26 +1,28 @@
-<h1>Listing shift_times</h1>
-
 <table>
   <tr>
-    <th>Day of week</th>
-    <th>Time of day</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>Monday</th>
+    <th>Tuesday</th>
+    <th>Wednesday</th>
+    <th>Thursday</th>
+    <th>Friday</th>
+    <th>Saturday</th>
+    <th>Sunday</th>
   </tr>
-
-<% @shift_times.each do |shift_time| %>
+  <% for i in 0...@max_length do %>
   <tr>
-    <td><%= shift_time.day_of_week %></td>
-    <td><%= shift_time.time_of_day %></td>
-    <td><%= link_to 'Show', shift_time %></td>
-    <td><%= link_to 'Edit', edit_shift_time_path(shift_time) %></td>
-    <td><%= link_to 'Destroy', shift_time, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% @times_by_day.each_value do |times| %>
+    <td><%= 
+	   time = times.pop
+	   if !time.nil?
+	   link_to time.time_of_day.strftime('%I:%M %p'), time
+	   end
+	   %></td>
+    <% end %>
   </tr>
-<% end %>
+  <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Shift time', new_shift_time_path %>
+<%= link_to 'New Time', new_shift_time_path %>
 <%= link_to 'Home', tutors_path %>
