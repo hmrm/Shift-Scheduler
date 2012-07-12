@@ -50,6 +50,9 @@ class ShiftTimesController < ApplicationController
 
     respond_to do |format|
       if @shift_time.save
+        Tutor.all.each do |tutor|
+          Availability.new(:available => :pref, :tutor_id => tutor.id, :shift_time_id => @shift_time.id).save
+        end
         format.html { redirect_to @shift_time, notice: 'Shift time was successfully created.' }
         format.json { render json: @shift_time, status: :created, location: @shift_time }
       else

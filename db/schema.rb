@@ -11,7 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120710213837) do
+ActiveRecord::Schema.define(:version => 20120711221302) do
+
+  create_table "availabilities", :force => true do |t|
+    t.string   "available"
+    t.integer  "tutor_id"
+    t.integer  "shift_time_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
 
   create_table "shift_times", :force => true do |t|
     t.string   "day_of_week"

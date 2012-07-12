@@ -13,7 +13,7 @@ class TutorsController < ApplicationController
   # GET /tutors/new.json
   def new
     @tutor = Tutor.new
-
+    
     respond_to do |format|
       format.html # new.html.erb
     end
@@ -26,6 +26,9 @@ class TutorsController < ApplicationController
 
     respond_to do |format|
       if @tutor.save
+        ShiftTime.all.each do |time|
+          Availability.new(:available => :pref, :tutor_id => @tutor.id, :shift_time_id => time.id).save
+        end
         format.html { redirect_to tutors_url, notice: 'Tutor was successfully created.' }
       else
         format.html { render action: "new" }
