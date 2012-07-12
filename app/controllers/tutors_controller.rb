@@ -1,4 +1,19 @@
 class TutorsController < ApplicationController
+  def show
+    @tutor = Tutor.find(params[:id])
+    tutor_availabilitys = Availability.where("tutor_id = #{@tutor.id}").joins(:shift_time).select('availabilities.id, time_of_day, day_of_week')
+    @availabilitys_by_day = {}
+    ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"].each do |day|
+      @availabilitys_by_day[day] = tutor_availabilitys.where("day_of_week = '#{day}'").order("time_of_day DESC")
+    end
+
+    @max_length = @availabilitys_by_day.values.map{|availabilitys| availabilitys.count}.max
+
+    respond_to do |format|
+      format.html
+    end
+  end
+
   # GET /tutors
   # GET /tutors.json
   def index
