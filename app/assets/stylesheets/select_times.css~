@@ -1,0 +1,18 @@
+.ui-selected.pref{
+    background-color : #55FF55;
+}
+.ui-selected.can{
+    background-color : #5555FF;
+}
+.ui-selected.no{
+    background-color : #FF5555;
+}
+.pref{
+    background-color : #00FF00;
+}
+.can{
+    background-color : #0000FF;
+}
+.no{
+    background-color : #FF0000;
+}

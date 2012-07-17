@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  available?: MyString
+  tutor_id: 1
+  shift_time_id: 1
+
+two:
+  available?: MyString
+  tutor_id: 1
+  shift_time_id: 1

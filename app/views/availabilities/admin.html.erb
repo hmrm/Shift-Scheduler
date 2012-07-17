@@ -1,0 +1,32 @@
+<table>
+  <tr>
+    <th>Monday</th>
+    <th>Tuesday</th>
+    <th>Wednesday</th>
+    <th>Thursday</th>
+    <th>Friday</th>
+    <th>Saturday</th>
+    <th>Sunday</th>
+  </tr>
+  <% for i in 0...@max_length do %>
+    <tr>
+      <% @availabilities.each_value do |day|
+         time = day.pop
+         if time.nil? %>
+           <td></td>
+	 <% else %>
+	   <td> <%= time[0].time_of_day.to_time.strftime("%I:%M %p") %>
+	     <ul>
+            <% time[1].each do |tutor, available| %>
+	    <li class=<%=available%>>
+	      <%= tutor.name %>
+	    </li>
+	    <% end %>
+	   </ul></td>
+	 <% end %>
+      <% end %>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to 'Home', tutors_path %>

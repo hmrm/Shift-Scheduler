@@ -1,0 +1,30 @@
+<%= javascript_include_tag "select_table" %>
+<%= stylesheet_link_tag "select_times" %>
+
+<table class="selectable">
+  <tr>
+    <th>Monday</th>
+    <th>Tuesday</th>
+    <th>Wednesday</th>
+    <th>Thursday</th>
+    <th>Friday</th>
+    <th>Saturday</th>
+    <th>Sunday</th>
+  </tr>
+  <% for i in 0...@max_length do %>
+  <tr>
+    <% @availabilitys_by_day.each_value do |times| %>
+    <% time = times.pop
+       if !time.nil? %>
+    <td class="<%=time.available%> option"><%= 
+	   time.time_of_day.to_time.strftime("%I:%M %p")
+	   %></td>
+    <% else %>
+    <td></td>
+    <% end %>
+    <% end %>
+  </tr>
+  <% end %>
+</table>
+
+<%= link_to 'Home', tutors_path %>
