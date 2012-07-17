@@ -8,7 +8,7 @@
 
 <% @tutors.each do |tutor| %>
   <tr>
-    <td><%= link_to tutor.name, tutor.name, :class => 'tutorname' %></td>
+    <td><%= link_to tutor.name, tutor, :class => 'tutorname' %></td>
     <td class=delete><%= link_to 'Delete', tutor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
