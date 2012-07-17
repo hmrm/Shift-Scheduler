@@ -29,10 +29,10 @@ class TutorsController < ApplicationController
   end
     
   def update
-    @tutor = Tutor.find(params[id])
+    @tutor = Tutor.find(params[:id])
     
     respond_to do |format|
-      if Tutors.find(params[:id]).update_attributes(params[:tutor])
+      if Tutor.find(params[:id]).update_attributes(params[:tutor])
         format.html { redirect_to @tutor, notice: 'Preference for number of hours updated' }
       else
         format.html {render action: "edit" }
