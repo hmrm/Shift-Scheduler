@@ -1,7 +1,7 @@
 class TutorsController < ApplicationController
   def show
     @tutor = Tutor.find(params[:id])
-    tutor_availabilitys = Availability.where("tutor_id = #{@tutor.id}").joins(:shift_time).select('availabilities.id, time_of_day, day_of_week')
+    tutor_availabilitys = Availability.where("tutor_id = #{@tutor.id}").joins(:shift_time).select('availabilities.id, time_of_day, day_of_week, available')
     @availabilitys_by_day = {}
     ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"].each do |day|
       @availabilitys_by_day[day] = tutor_availabilitys.where("day_of_week = '#{day}'").order("time_of_day DESC")
