@@ -1,6 +1,7 @@
 class AvailabilitiesController < ApplicationController
 
   def admin
+    @tutors = Tutor.all
     @availabilities = {}
     ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"].each do |day|
       this_day = {}
@@ -18,6 +19,7 @@ class AvailabilitiesController < ApplicationController
 
     respond_to do |format|
       format.html
+      format.json { render json: @availabilities }
     end
   end
 

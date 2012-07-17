@@ -15,7 +15,7 @@
     <%= f.select(:day_of_week, %w[Monday Tuesday Wednesday Thursday Friday Saturday Sunday], {}, {})%>
   </div>
   <div class="field">
-    <%= f.time_select :time_of_day %>
+    <%= f.time_select :time_of_day, :minute_step => 30 %>
   </div>
   <div class="actions">
     <%= f.submit 'Submit'%>

@@ -15,7 +15,7 @@
          if time.nil? %>
            <td></td>
 	 <% else %>
-	   <td> <%= time[0].time_of_day.to_time.strftime("%I:%M %p") %>
+	   <td> <%= time[0].time_of_day.to_time.strftime("%l:%M %p") %>
 	     <ul>
             <% time[1].each do |tutor, available| %>
 	    <li class=<%=available%>>
@@ -26,6 +26,19 @@
 	 <% end %>
       <% end %>
     </tr>
+  <% end %>
+</table>
+
+<table class="tutornames">
+  <tr>
+    <th>Tutors</th>
+    <th>Hours</th>
+  </tr>
+  <% @tutors.each do |tutor| %>
+  <tr>
+    <td><%= link_to tutor.name, tutor.name, :class => 'tutorname' %></td>
+    <td><%= tutor.hours %></td>
+  </tr>
   <% end %>
 </table>
 

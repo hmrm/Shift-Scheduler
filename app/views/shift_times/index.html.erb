@@ -14,7 +14,7 @@
     <td><%= 
 	   time = times.pop
 	   if !time.nil?
-	   link_to time.time_of_day.strftime('%I:%M %p'), time
+	   link_to time.time_of_day.strftime('%l:%M %p'), time
 	   end
 	   %></td>
     <% end %>
@@ -24,5 +24,5 @@
 
 <br />
 
-<%= link_to 'New Time', new_shift_time_path %>
+<%= link_to 'New Time', new_shift_time_path %> |
 <%= link_to 'Home', tutors_path %>

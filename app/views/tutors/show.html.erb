@@ -1,9 +1,4 @@
 <%= javascript_include_tag "select_table" %>
-<%= stylesheet_link_tag "select_times" %>
-
-<button id="pref" class="pref">Preferred</button>
-<button id="can" class="can">Available</button>
-<button id="no" class="no">Unavailable</button>
 
 <table class="selectable">
   <tr>
@@ -21,7 +16,7 @@
     <% time = times.pop
        if !time.nil? %>
     <td class="<%=time.available%> option" id="<%=time.id%>"><%= 
-	   time.time_of_day.to_time.strftime("%I:%M %p")
+	   time.time_of_day.to_time.strftime("%l:%M %p")
 	   %></td>
     <% else %>
     <td></td>
@@ -31,4 +26,8 @@
   <% end %>
 </table>
 
-<%= link_to 'Home', tutors_path %>
+<button id="pref">Preferred</button>
+<button id="can">Available</button>
+<button id="no">Unavailable</button>
+<%= link_to 'Choose Preferred Number of Hours', edit_tutor_path(@tutor.id), :class => 'arrrgputitatthebottom'%>
+<%= link_to 'Home', tutors_path, :class => 'arrrgputitatthebottom'%>

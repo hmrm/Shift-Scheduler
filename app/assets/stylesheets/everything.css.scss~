@@ -1,0 +1,38 @@
+table {
+      border-spacing : 0;
+}
+
+table.tutornames {
+		 border-spacing : 2px;
+}
+
+li {
+    list-style : none;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+.no {
+    background-color: #FF0000;
+}
+.no.ui-selected {
+    background-color: #990000;
+}
+
+.pref {
+    background-color: #99FF00;
+}
+.pref.ui-selected {
+    background-color: #669900;
+}
+
+
+.can {
+    background-color: #009999;
+}
+.can.ui-selected {
+    background-color: #006666;
+}

@@ -12,7 +12,7 @@ $(document).ready(function(){
 
     url = url.join('/');
     $.each(['pref', 'can', 'no'], function(index, inpt){
-	$('button.' + inpt).click(function(){
+	$('#' + inpt).click(function(){
 	    var ids = [];
 	    $('td.ui-selected').each(function(){
 		ids.push( $(this).attr('id'));
