@@ -1,37 +1,43 @@
 <%= javascript_include_tag "select_table" %>
-
-<table class="selectable table-bordered table">
-  <thead>
-    <tr>
-      <th>Monday</th>
-      <th>Tuesday</th>
-      <th>Wednesday</th>
-      <th>Thursday</th>
-      <th>Friday</th>
-      <th>Saturday</th>
-      <th>Sunday</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% for i in 0...@max_length do %>
-    <tr>
-      <% @availabilitys_by_day.each_value do |times| %>
-      <% time = times.pop
-	 if !time.nil? %>
-      <td class="<%=time.available%> option" id="<%=time.id%>"><%= 
-								  time.time_of_day.to_time.strftime("%l:%M %p")
-								  %></td>
-      <% else %>
-      <td></td>
-      <% end %>
-      <% end %>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<button id="pref" class="btn btn-success">Preferred</button>
-<button id="can" class="btn btn-primary">Available</button>
-<button id="no" class="btn btn-danger">Unavailable</button>
-<%= link_to 'Choose Preferred Number of Hours', edit_tutor_path(@tutor.id), :class => 'arrrgputitatthebottom'%>
-<%= link_to 'Home', tutors_path, :class => 'arrrgputitatthebottom'%>
+<div class="row-fluid">
+  <div class="span8">
+    <h1><%= @tutor.name %></h1>
+    <table class="selectable table-bordered table">
+      <thead>
+	<tr>
+	  <th>Monday</th>
+	  <th>Tuesday</th>
+	  <th>Wednesday</th>
+	  <th>Thursday</th>
+	  <th>Friday</th>
+	  <th>Saturday</th>
+	  <th>Sunday</th>
+	</tr>
+      </thead>
+      <tbody>
+	<% for i in 0...@max_length do %>
+	<tr>
+	  <% @availabilitys_by_day.each_value do |times| %>
+	  <% time = times.pop
+	     if !time.nil? %>
+	  <td class="<%=time.available%> option" id="<%=time.id%>"><%= 
+								      time.time_of_day.to_time.strftime("%l:%M %p")
+								      %></td>
+	  <% else %>
+	  <td></td>
+	  <% end %>
+	  <% end %>
+	</tr>
+	<% end %>
+      </tbody>
+    </table>
+    <button id="pref" class="btn btn-success btn-large">Preferred</button>
+    <button id="can" class="btn btn-primary btn-large">Available</button>
+    <button id="no" class="btn btn-danger btn-large">Unavailable</button>
+    </div>
+  <div class="span4">
+    <h1>Choose Hours</h1>
+    <p>Please indicate the hours you can work by drag-selecting them and then clicking the appropriate button. When you are done, please indicate how many hours you'd like to work by following the below link:</p>
+<%= link_to 'Choose Preferred Number of Hours', edit_tutor_path(@tutor.id), :class => 'arrrgputitatthebottom btn'%>
+  </div>
+</div>

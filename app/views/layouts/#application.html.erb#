@@ -11,6 +11,7 @@
   <div class="navbar-inner">
     <div class="container">
       <a class="brand" href="#">Scheduler</a>
+      <li class="active"><a href="#"><i class="icon-home icon-white"></i> Home</a></li
     </div>
   </div>
 </div>

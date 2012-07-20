@@ -1,28 +1,37 @@
-<table>
-  <tr>
-    <th>Monday</th>
-    <th>Tuesday</th>
-    <th>Wednesday</th>
-    <th>Thursday</th>
-    <th>Friday</th>
-    <th>Saturday</th>
-    <th>Sunday</th>
-  </tr>
-  <% for i in 0...@max_length do %>
-  <tr>
-    <% @times_by_day.each_value do |times| %>
-    <td><%= 
-	   time = times.pop
-	   if !time.nil?
-	   link_to time.time_of_day.strftime('%l:%M %p'), time
-	   end
-	   %></td>
-    <% end %>
-  </tr>
-  <% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Time', new_shift_time_path %> |
-<%= link_to 'Home', tutors_path %>
+<div class="row-fluid">
+  <div class="span8">
+    <table class="table table-bordered table-striped">
+      <thead>
+	<tr>
+	  <th>Monday</th>
+	  <th>Tuesday</th>
+	  <th>Wednesday</th>
+	  <th>Thursday</th>
+	  <th>Friday</th>
+	  <th>Saturday</th>
+	  <th>Sunday</th>
+	</tr>
+      </thead>
+      <tbody>
+	<% for i in 0...@max_length do %>
+	<tr>
+	  <% @times_by_day.each_value do |times| %>
+	  <td><%= 
+		 time = times.pop
+		 if !time.nil?
+		 link_to time.time_of_day.strftime('%l:%M %p'), time
+		 end
+		 %></td>
+	  <% end %>
+	</tr>
+	<% end %>
+      </tbody>
+    </table>
+    <br />
+    <%= link_to 'New Time', new_shift_time_path, :class => "btn"%>
+  </div>
+  <div class="span4">
+    <h1>Adjust Shift Times</h1>
+    <p>This is the interface for changing when shifts are. For instance, if the Lab decided to stay open an extra hour on Mondays, you would add the two shifts here. To edit or delete a shift, click on it in the grid. If you want to make a new shift, click the 'New Shift' button below the grid.</p>
+  </div>
+</div>
