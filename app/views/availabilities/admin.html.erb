@@ -23,7 +23,7 @@
 	  <td> <%= time[0].time_of_day.to_time.strftime("%l:%M %p") %>
 	    <ul>
               <% time[1].each do |tutor, available| %>
-	      <li class=<%=available%>>
+	      <li class="<%=available%> admin-availabilities">
 		<%= tutor.name %>
 	      </li>
 	      <% end %>

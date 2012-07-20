@@ -31,19 +31,37 @@ body {
 // Example:
 // @linkColor: #ff0000;
 
-.ui-selected{ color: #fff }
+.sadmin (@color) {
+    color: @color;
+    font-weight: bold;
+    background-color: inherit;
+}
+
+.admin-availabilities{
+    &.pref{ .sadmin(@green); }
+    &.no{.sadmin(@red); }
+    &.can{.sadmin(@blue); }
+}
+
+.selection (@color) { 
+    color: #fff;
+    background-color: lighten(@color, 3%);
+	&.ui-selected{ background-color: darken(@color, 15%); }
+}
+
+.pref { .selection(@btnSuccessBackgroundHighlight); }
+.no { .selection(@btnDangerBackgroundHighlight); }
+.can { .selection(@btnPrimaryBackgroundHighlight); }
+
 
 .table tbody tr:hover td { 
     &.pref {
-	background-color: #00CC00;
-	&.ui-selected{ background-color: #008800 }
+	.selection(@btnSuccessBackgroundHighlight);
     }
     &.no {
-	background-color: #CC0000;
-	&.ui-selected{ background-color: #880000 }
+	.selection(@btnDangerBackgroundHighlight);
     }
     &.can {
-	background-color: #0000CC;
-	&.ui-selected{ background-color: #000088 }
+	.selection(@btnPrimaryBackgroundHighlight);
     }
 }

@@ -4,7 +4,7 @@
     <ul class="unstyled">
       <% @tutors.each do |tutor| %>
       <li>
-	<%= link_to tutor.name, tutor, :class => 'tutorname' %> <%= link_to 'X', tutor, method: :delete, data: { confirm: 'Are you sure you want to delete #{tutor.name}?' }, :class => "btn btn-danger btn-mini hidden"%>
+	<%= link_to tutor.name, tutor, :class => 'tutorname' %> <%= link_to 'X', tutor, method: :delete, data: { confirm: "Are you sure you want to delete #{tutor.name}?" }, :class => "btn btn-danger btn-mini hidden"%>
       </li>
       <% end %>
     </ul>
