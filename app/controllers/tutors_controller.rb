@@ -4,7 +4,7 @@ class TutorsController < ApplicationController
     tutor_availabilitys = Availability.where("tutor_id = #{@tutor.id}").joins(:shift_time).select('availabilities.id, time_of_day, day_of_week, available')
     @availabilitys_by_day = {}
     ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"].each do |day|
-      @availabilitys_by_day[day] = tutor_availabilitys.where("day_of_week = '#{day}'").order("time_of_day DESC")
+      @availabilitys_by_day[day] = tutor_availabilitys.order("time_of_day DESC").where("day_of_week = '#{day}'")
     end
 
     @max_length = @availabilitys_by_day.values.map{|availabilitys| availabilitys.count}.max

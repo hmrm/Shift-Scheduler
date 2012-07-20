@@ -21,7 +21,7 @@
 	  <% time = times.pop
 	     if !time.nil? %>
 	  <td class="<%=time.available%> option" id="<%=time.id%>"><%= 
-								      time.time_of_day
+								      time.time_of_day.strftime('%l:%M %p')
 								      %></td>
 	  <% else %>
 	  <td></td>
