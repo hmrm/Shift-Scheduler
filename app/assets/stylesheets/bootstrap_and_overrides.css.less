@@ -30,3 +30,20 @@ body {
 //
 // Example:
 // @linkColor: #ff0000;
+
+.ui-selected{ color: #fff }
+
+.table tbody tr:hover td { 
+    &.pref {
+	background-color: #00CC00;
+	&.ui-selected{ background-color: #008800 }
+    }
+    &.no {
+	background-color: #CC0000;
+	&.ui-selected{ background-color: #880000 }
+    }
+    &.can {
+	background-color: #0000CC;
+	&.ui-selected{ background-color: #000088 }
+    }
+}

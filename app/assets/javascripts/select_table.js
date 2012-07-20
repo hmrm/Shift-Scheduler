@@ -1,4 +1,7 @@
 $(document).ready(function(){
+    $( ".unhide" ).click(function() {
+	$('.hidden').removeClass("hidden");
+    });
     $( ".selectable" ).selectable({
 	filter : 'td.option'
     });

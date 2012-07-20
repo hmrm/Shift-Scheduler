@@ -1,4 +1,4 @@
-<%= form_for(@tutor) do |f| %>
+<%= form_for @tutor, :html => { :class => "form-inline" } do |f| %>
   <% if @tutor.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@tutor.errors.count, "error") %> prohibited this tutor from being saved:</h2>
@@ -10,17 +10,23 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label 'Preferred Number of Hours' %><br />
-    <%= f.text_field :hours %>
-  </div>
-
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <fieldset>
+    <legend><%= controller.action_name.capitalize %> Tutor</legend>
+    <div class="control-group">
+      <%= f.label 'Preferred Number of Hours', :class => "control-label" %>
+      <div class="controls">
+	<%= f.text_field :hours, :class => "text_field" %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :name, :class => "control-label" %>
+      <div class="controls">
+	<%= f.text_field :name, :class => "text_field" %>
+      </div>
+    </div>
+    <div class="form-actions">
+      <%= f.submit nil, :class => "btn btn-primary" %>
+      <%= link_to 'Cancel', tutors_path, :class => "btn" %>
+    </div>
+  </fieldset>
 <% end %>

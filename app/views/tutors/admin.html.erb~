@@ -4,7 +4,7 @@
     <ul class="unstyled">
       <% @tutors.each do |tutor| %>
       <li>
-	<%= link_to tutor.name, tutor, :class => 'tutorname' %> <%= link_to 'X', tutor, method: :delete, data: { confirm: 'Are you sure you want to delete #{tutor.name}?' }, :class => "btn btn-danger btn-mini hidden"%>
+	<%= link_to tutor.name, tutor, :class => 'tutorname' %>
       </li>
       <% end %>
     </ul>
@@ -12,8 +12,8 @@
   <div class="span6">
     <h1>Admin</h1>
     <ul class="unstyled">
-      <li><%= link_to 'New Tutor', new_tutor_path %></li>
-      <li><a class="unhide">Remove Tutor</a></li>
+      <li><%= link_to 'New Tutor', new_tutor_path %>  <%= link_to 'DELETE', tutor, method: :delete, data: { confirm: 'Are you sure you want to delete #{tutor.name}?' }, :class => "btn btn-danger"%></li>
+      <li><%= link_to 'Remove Tutor'%></li>
       <li><%= link_to 'Add/Remove Shifts', shift_times_path %></li>
       <li><%= link_to 'View All Data', admin_availabilities_path %></li>
     </ul>
